@@ -1,0 +1,195 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #e9e9e9;
+}
+
+
+/* ---------------------------------------------All Divs Here----------------------------------------------- */
+.div1 {
+  width: 100%;
+}
+
+.div2 {
+  width: 100%;
+  font-weight: bold;
+  margin: 15px;
+  padding: 10px;
+  font-size: 24px;
+  border-radius: 8px;
+  border: none;
+  background-color: #ffff;
+  text-align: center;
+  
+}
+
+.div3 {
+
+  width: 100%;
+  margin: 15px;
+  padding: 14px;
+  font-size: large;
+  border-radius: 8px;
+  border: none;
+  background-image: url('https://images.pexels.com/photos/35537/child-children-girl-happy.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 250px;
+
+}
+
+
+.div4 {
+
+  width: 100%;
+  margin: 15px;
+  padding: 14px;
+  font-size: large;
+  border-radius: 8px;
+  border: none;
+  background-color: #ffff;
+ 
+
+}
+
+.div5 {
+
+  width: 100%;
+  height: 180px;
+  margin: 15px;
+  padding: 15px;
+  font-size: large;
+  border-radius: 8px;
+  border: none;
+  background-color: #ffff;
+  display: flex;
+}
+
+.div6 {
+  width: 100%;
+  height: 100%px;
+  margin: 15px 15px 15px 15px;
+  
+ 
+  font-size: large;
+  border-radius: 8px;
+  border: none;
+  background-color: #ffff;
+  display: flex;
+}
+
+.div7 {
+
+  width: 100%;
+  margin: 15px;
+  padding: 14px;
+  font-size: small;
+  border-radius: 8px;
+  border: none;
+  text-align: center;
+  font-weight: bold;
+  background-color: #3c3c3c;
+  color: #8d8d8d;
+
+}
+
+/* ---------------------------------------------All Nested Divs Here----------------------------------------------- */
+
+
+
+/* ---------------------------------------------All Inputs Here----------------------------------------------- */
+.inp1 {
+  width: 100%;
+  margin: 0 15px 0;
+  
+  padding: 14px;
+  font-size: large;
+  border-radius: 8px;
+  border: none;
+  background-color: #3c3c3c;
+}
+
+
+input:focus {
+  outline: none;
+  zoom: 1;
+  background-color: #464646;
+  color: white;
+}
+
+/* ---------------------------------------------All Text Here----------------------------------------------- */
+
+.phonetext {
+  margin-top: 20px;
+}
+
+.DetailsHeading {
+  font-weight: 700;
+  margin-bottom: 20px;
+  font-size: 23px;
+}
+
+.tileDivText {
+  margin: 0 20px 20px 15px;
+  font-weight: 700;
+
+}
+
+
+
+
+
+
+
+ /* ---------------------------------------------All Buttons Here----------------------------------------------- */
+
+ .btn1 {
+  background-color: #ff4949;
+  padding: 5px 7px 5px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+ }
+
+ .btn2callnow {
+  background-color: #05a081;
+  padding: 12px 10px 12px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  width: 100%;
+  margin-top: 20px;
+  font-size: medium;
+  font-weight: 600;
+
+ }
+
+ .missingAdult {
+  background-color: #ff4949;
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+  padding: 8px;
+  color:white
+ 
+ }
+
+
+
+/* ---------------------------------------------All Images Here----------------------------------------------- */
+
+
+.tileImg {
+  border-radius: 5px;
+  height: 150px;
+  width: 200px;
+}
+
+/* ---------------------------------------------All footer Here----------------------------------------------- */
+
+
