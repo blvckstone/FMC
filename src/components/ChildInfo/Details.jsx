@@ -1,5 +1,5 @@
 import React from 'react';
-import CallBtn from './Buttons/CallBtn';
+import CallBtn from '../Buttons/CallBtn';
 
 
 function Details(props){
