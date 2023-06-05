@@ -30,8 +30,14 @@ function SearchBar(props) {
         // Compare the strings character by character
         for (let i = 0; i < query.length; i++) {
           if (fullName[i] !== query[i]) {
-            return false;
+
+            if (contNumber[i] !== query[i]){
+              return false
+            }
+            // return false;
           }
+
+          
         }
         
         return true;
