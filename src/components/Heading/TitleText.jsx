@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import "../../css/Sidebar.css"
+import { Link } from "react-router-dom";
 
 function TitleText(props) {
   const [btnEffectProps, setBtnEffectProps] = useState(false);
@@ -42,11 +44,11 @@ function TitleText(props) {
           <button onClick={toggleSidebar}><span class="material-symbols-outlined">menu</span></button>
             
           {sidebarVisible && (
-            <div className="sidebar-overlay">
+            <div className="sidebar-overlay" onClick={toggleSidebar}>
               <div className="sidebar-content">
                 <ul className="menu-options">
-                  <li>Home</li>
-                  <li>All Children List</li>
+                  <Link to="/"><li>Home</li></Link>
+                  <Link to="/list"><li>All Children List</li></Link>
                   <li>All Persons List</li>
                 </ul>
                 <button id="menuClosebtn" onClick={toggleSidebar}>Close</button>
