@@ -23,9 +23,11 @@ body {
   padding: 10px;
   font-size: 24px;
   border-radius: 8px;
-  border: none;
-  background-color: #ffff;
-  text-align: center;
+  user-select: none;
+  background-color: #1f2937;
+  display: flex;
+  
+  color: white;
   
 }
 
@@ -53,7 +55,8 @@ body {
   font-size: large;
   border-radius: 8px;
   border: none;
-  background-color: #ffff;
+  background-color: #1f2937;
+  color: white;
  
 
 }
@@ -99,6 +102,40 @@ body {
 
 }
 
+.div8 {
+
+  width: 100%;
+  font-weight: bold;
+  margin: 15px;
+  padding: 10px;
+  font-size: medium;
+  border-radius: 8px;
+  
+  background-color: #1e81b0;
+  text-align: center;
+  
+  color: white;
+
+}
+
+.div9 {
+
+  width: 100%;
+  font-weight: bold;
+  margin: 15px;
+  
+  font-size: medium;
+  border-radius: 8px;
+  
+  background-color: #1f2937;
+  /* text-align: center; */
+  
+  color: white;
+
+}
+
+
+
 /* ---------------------------------------------All Nested Divs Here----------------------------------------------- */
 
 
@@ -107,7 +144,7 @@ body {
 .inp1 {
   width: 100%;
   margin: 0 15px 0;
-  
+  color: white;
   padding: 14px;
   font-size: large;
   border-radius: 8px;
@@ -141,7 +178,12 @@ input:focus {
 
 }
 
+.TitleText {
 
+  flex: 6;
+  user-select: none;
+
+}
 
 
 
@@ -178,6 +220,27 @@ input:focus {
   color:white
  
  }
+
+ .headingButtonMenu {
+  align-self: last baseline;
+ }
+
+
+ .headingButtonMenu {
+  flex: 1;
+  background-color: #464646;
+  font-size: medium;
+  border-radius: 5px;
+  padding-top: 5px;
+  
+ 
+  
+ }
+
+ /* .material-symbols-outlined {
+  user-select: none;
+  touch-action: manipulation;
+ } */
 
 
 

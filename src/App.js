@@ -1,14 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
+import './css/App.css';
 import TitleText from './components/Heading/TitleText';
 import SearchBar from './components/Heading/SearchBar';
 import MissingBtn from './components/ChildInfo/MissingBtn';
 import Details from './components/ChildInfo/Details';
 import RecentList from './components/List/RecentList';
 import AdultMissingTile from './components/AdultInfo/AdultMissingTile';
+import childrenData from './data';
+import Sidebar from './components/Sidebar';
+
 
 
 function App(){
+
+ 
 
   const [bgclrStrng, setbgClrStrng] = useState("#ff4949")
   const [txtclrStrng, settxtclrStrng] = useState("#ffffff")
@@ -25,14 +33,19 @@ function App(){
   }, []);
 
 
-
+ 
   return(
-    <div className="App">
+    
+    <div className="App"> 
+
+      
+        
     
         <TitleText 
           text={"Find My Child"}/>
 
         <SearchBar />
+
 
         <MissingBtn 
           text={"Recently Missing"} 
@@ -41,8 +54,8 @@ function App(){
           childImg={'https://images.pexels.com/photos/35537/child-children-girl-happy.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'}/>
 
         <Details 
-          titleText={"Emergency Details"}
-          info={"At vero eos et accusamus et iusto odio dignissimos ducimus"}
+          fullName={childrenData[0].fullName}
+          fullInfo={childrenData[0].address}
           phone={"+91 9011507760"}
           btnText={"Found? Call Parents"}/>
 
@@ -54,35 +67,47 @@ function App(){
           fullInfo={"We deeply regret to inform you that this person has been reported missing. Our hearts ache for the uncertainty."} 
           phone={"9011507760"}/>
 
-        <RecentList />
-
-
-        <div className="div7">
-        <button className="footer">
-          Designed & Maintained By Shoeb
-        </button>
-        </div>
-
           
-
+          
+          <div className="div8">
+          <Link to="/list"><button>Show All Recently Missing Child</button></Link>
+          </div>
+          
         
-        
-
-        
 
 
 
 
 
+          {childrenData.map(function(singleData){
+
+             return( 
+
+              <Routes>
+                <Route path='/list' element={
+                  <RecentList 
+                    missingSince={"Just Now"} 
+                    fullName={singleData.fullName} 
+                    phone={singleData.contactNumber} 
+                    address={singleData.address}
+                    state={singleData.state}
+                    missingDate={singleData.missingDate}
+                    img={singleData.img}
+                    status={false}/>
+                }></Route>
+              </Routes>
+              
+              
+              ) 
+          }
+        )
+      }
 
 
 
+    </div> 
 
-
-
-
-
-    </div>
+    
   );
 };
 

@@ -1,0 +1,40 @@
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 108%;
+  height: 108%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  scroll-behavior: none;
+  margin-top: -20px;
+  overflow-y: hidden;
+  touch-action: none;
+}
+
+.sidebar-content {
+  background-color: #fff;
+  padding: 20px;
+  color: black;
+  margin-top: 20px;
+  border-radius: 5px;
+  /* position: absolute; */
+}
+
+.menu-options {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-options li {
+  margin-bottom: 10px;
+}
+
+#menuClosebtn {
+  margin-top: 50px;
+  color: #929292;
+} 
