@@ -1,31 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import { Routes, Route} from 'react-router-dom';
-import LoadingBar from 'react-top-loading-bar'
+import React, { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import LoadingBar from "react-top-loading-bar";
+import "./css/App.css";
+import TitleText from "./components/Heading/TitleText";
+import SearchBar from "./components/Heading/SearchBar";
+import MissingBtn from "./components/ChildInfo/MissingBtn";
+import Details from "./components/ChildInfo/Details";
+import AdultMissingTile from "./components/AdultInfo/AdultMissingTile";
+import childrenData from "./Data/data";
+import RecentList from "./components/List/RecentList";
+import DetailedView from "./components/Pages/DetailedView";
+import BackHome from "./components/Buttons/BackHome";
+import adultData from "./Data/AdultData";
 
-import './css/App.css';
-import TitleText from './components/Heading/TitleText';
-import SearchBar from './components/Heading/SearchBar';
-import MissingBtn from './components/ChildInfo/MissingBtn';
-import Details from './components/ChildInfo/Details';
 
-import AdultMissingTile from './components/AdultInfo/AdultMissingTile';
-import childrenData from './data';
-import ViewAllList from './components/Pages/ViewAllList';
+function App() {
 
+  const [bgclrStrng, setbgClrStrng] = useState("#ff4949"); //For Blinking Missing Button
+  const [txtclrStrng, settxtclrStrng] = useState("#ffffff"); //For Blinking Missing Button
+  const [progress, setProgress] = useState(0); //For Progress Bar
 
-
-
-function App(){
-
- 
-
-  const [bgclrStrng, setbgClrStrng] = useState("#ff4949");
-  const [txtclrStrng, settxtclrStrng] = useState("#ffffff");
-  const [progress, setProgress] = useState(0);
-
+  
 
 
   useEffect(() => {
+    //For Progress Bar
     const timer = setInterval(() => {
       if (progress < 100) {
         setProgress(progress + 70);
@@ -36,15 +35,17 @@ function App(){
       clearInterval(timer);
     };
   }, [progress]);
- 
-
-
 
 
   useEffect(() => {
+    //For Blinking Missing Button
     const interval = setInterval(() => {
-      setbgClrStrng((prevColor1) => (prevColor1 === "#ff4949" ? "#ffffff" : "#ff4949"));
-      settxtclrStrng((prevColor2) => (prevColor2 === "#ffffff" ? "#000000" : "#ffffff")) 
+      setbgClrStrng((prevColor1) =>
+        prevColor1 === "#ff4949" ? "#ffffff" : "#ff4949"
+      );
+      settxtclrStrng((prevColor2) =>
+        prevColor2 === "#ffffff" ? "#000000" : "#ffffff"
+      );
     }, 500);
 
     return () => {
@@ -54,104 +55,130 @@ function App(){
 
 
 
+  return (
+     <> {/*Added for wrap all html element into single parent element*/}
 
+    {/* -----------------------------------------It will always render that's why not in route------------------------------- */}
 
- 
-  return(
-    <>
-    
-    
-     <div className="App"> 
+       <div className="App"> 
+        <LoadingBar
+          color="#f11946"
+          progress={progress}
+          style={{ marginTop: "-15px" }}
+        />
 
-                <LoadingBar
-                  color='#f11946'
-                  progress={progress}
-                  style={{marginTop: "-15px"}}
-                  
-                />
+        <TitleText text={"Find My Child"} />
 
-                <TitleText text={"Find My Child"}/>
+        <SearchBar />
 
+    {/*----------------------------------------First Home Routes Here "/" Render all These when go to home--------------------------------------------- */}
 
-                <SearchBar />
-
-                <Routes><>
-      
-        
-    
-                  
-                  <Route path='/' element={<>
-                    
-                    <LoadingBar
-                    color='#f11946'
-                    progress={progress}
-                    style={{marginTop: "-15px"}}
-                  
-                    />
-
-
-
-
-
-
-                    <MissingBtn 
-                      text={"Recently Missing"} 
-                      bgColor={bgclrStrng} 
-                      txtColor={txtclrStrng}
-                      childImg={'https://images.pexels.com/photos/35537/child-children-girl-happy.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'}/>
-          
-                    
-                    <Details 
-                      fullName={childrenData[0].fullName}
-                      fullInfo={childrenData[0].address}
-                      phone={"+91 9011507760"}
-                      btnText={"Found? Call Parents"}/>
-                    
-                    <AdultMissingTile 
-                      missingSince={"Missing Since 20-05-2022"} 
-                      img={"https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=876&q=80"} 
-                      fullName={"John Fredric, Age 25"} 
-                      fullInfo={"We deeply regret to inform you that this person has been reported missing. Our hearts ache for the uncertainty."} 
-                      phone={"9011507760"}/>
-
-
-                    
-            
-            
-            
-                  </>}></Route>
-
-
-
-          
-
-                  
-                <Route path='/list' element={<>
-
+        <Routes>
+          <>
+            <Route path="/" element={<>
+              
                   <LoadingBar
-                  color='#f11946'
-                  progress={progress}
-                  style={{marginTop: "-15px"}}
-                  key="list" //for loading bar not working when we add  it twice so we added this
-                
+                    color="#f11946"
+                    progress={progress}
+                    style={{ marginTop: "-15px" }}
                   />
+
+                  <MissingBtn
+                    text={"Recently Missing"}
+                    bgColor={bgclrStrng}
+                    txtColor={txtclrStrng}
+                    childImg={childrenData[0].img}
+                  />
+
+
+                  <Details
+                    fullName={childrenData[0].fullName}
+                    fullInfo={childrenData[0].address}
+                    phone={"+91 9011507760"}
+                    btnText={"Found? Call Parents"}
+                  />
+
+                  {adultData.map((singleAdultObj) => {
+                    return(
+                      <AdultMissingTile
+                    missingSince={singleAdultObj.missingDate}
+                    img={singleAdultObj.img}
+                    fullName={singleAdultObj.fullName}
+                    fullInfo={singleAdultObj.address}
+                    phone={singleAdultObj.contactNumber}
+                  />
+
+                    )
+                  })}
+
                   
-                 <ViewAllList />
-                 </>}></Route>
-              
-              
-              
-              
 
-      </>
-      </Routes>
-    </div> 
-    
 
-    
-  </>
+
+                </>} 
+            ></Route>
+
+
+  {/*----------------------------------------List Routes Here "/list" Render all These when go to /list--------------------------------------------- */}
+
+
+            <Route path="/list" element={<>
+              
+              
+                
+                  <LoadingBar
+                    color="#f11946"
+                    progress={progress}
+                    style={{ marginTop: "-15px" }}
+                    key="list" //for loading bar not working when we add  it twice so we added this
+                  />
+
+
+                  {childrenData.map(function (singleData) {
+                    return (
+                      <RecentList
+                        missingSince={"Just Now"}
+                        fullName={singleData.fullName}
+                        phone={singleData.contactNumber}
+                        address={singleData.address}
+                        state={singleData.state}
+                        missingDate={singleData.missingDate}
+                        img={singleData.img}
+                        status={false}
+                      />
+                    );
+                  })}
+                  <BackHome />
+                </>
+              }
+            ></Route>
+
+
+
+
+            <Route path="/:postName" element={<>
+              
+              
+                
+                  <LoadingBar
+                    color="#f11946"
+                    progress={progress}
+                    style={{ marginTop: "-15px" }}
+                    key="details" //for loading bar not working when we add  it twice so we added this
+                  />
+
+                  <DetailedView />
+                  <BackHome />
+
+                </>}
+              
+            ></Route>
+          </>
+        </Routes>
+        
+      </div>
+    </>
   );
-};
-
+}
 
 export default App;

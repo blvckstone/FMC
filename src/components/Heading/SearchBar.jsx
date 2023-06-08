@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import childrenData from '../../data';
+import childrenData from '../../Data/data';
 import RecentList from '../List/RecentList';
 
 function SearchBar(props) {
-  const [value, setValue] = useState("");
+  // const [value, setValue] = useState("");
   const [filteredData, setFilteredData] = useState([]);
   
 
@@ -53,7 +53,7 @@ function SearchBar(props) {
 
   return (
     <div className="div1">
-      <h1>{value}</h1>
+      {/* <h1>{value}</h1> */}
       <input
         type="text"
         onChange={handleChange}
@@ -72,9 +72,7 @@ function SearchBar(props) {
             address={data.address}
             state={data.state}
             missingDate={data.missingDate}
-            img={
-              "https://images.unsplash.com/photo-1581841899040-8b5e38bae033?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aW5kaWFuJTIwY2hpbGR8ZW58MHx8MHx8fDA%3D&w=1000&q=80"
-            }
+            img={data.img}
             status={false}
           />
         ))

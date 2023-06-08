@@ -4,17 +4,9 @@ import { Link } from 'react-router-dom';
 function SingleListItem(props){
 
 
-
-
-
-
-
-
-
-
     return(
-    // <Link to="/about">
-    <div className="RecentList div6">
+    
+    <Link to={props.fullName}><div className="RecentList div6">
         
         <div class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                 <div class="flex items-center justify-between mb-4">
@@ -53,7 +45,7 @@ function SingleListItem(props){
 
 
 
-    </div>
+    </div></Link>
     // </Link>
 
     );
