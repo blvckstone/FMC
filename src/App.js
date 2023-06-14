@@ -155,8 +155,49 @@ function App() {
 
 
 
+            <Route path="/lists" element={<>
+              
+              
+                
+              <LoadingBar
+                color="#f11946"
+                progress={progress}
+                style={{ marginTop: "-15px" }}
+                key="list" //for loading bar not working when we add  it twice so we added this
+              />
 
-            <Route path="/:postName" element={<>
+
+              {adultData.map(function (singleAdultObj) {
+                return (
+                  <RecentList
+                    missingSince={"Just Now"}
+                    fullName={singleAdultObj.fullName}
+                    phone={singleAdultObj.contactNumber}
+                    address={singleAdultObj.address}
+                    state={singleAdultObj.state}
+                    missingDate={singleAdultObj.missingDate}
+                    img={singleAdultObj.img}
+                    status={false}
+                  />
+                );
+              })}
+              <BackHome />
+              </>
+            }
+            ></Route>
+
+
+
+
+
+
+
+
+
+
+
+
+            <Route path={"/:postName"} element={<>
               
               
                 
@@ -173,6 +214,37 @@ function App() {
                 </>}
               
             ></Route>
+
+
+
+
+
+
+
+            <Route path={"/list/:postName"} element={<>
+              
+              
+                
+              <LoadingBar
+                color="#f11946"
+                progress={progress}
+                style={{ marginTop: "-15px" }}
+                key="details" //for loading bar not working when we add  it twice so we added this
+              />
+
+              <DetailedView />
+              <BackHome />
+
+            </>}
+          
+              ></Route>
+
+
+            
+
+
+
+            
           </>
         </Routes>
         

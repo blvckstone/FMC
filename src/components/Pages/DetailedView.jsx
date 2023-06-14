@@ -2,13 +2,16 @@ import React from "react";
 import CallBtn from "../Buttons/CallBtn";
 import { useParams } from "react-router-dom";
 import childrenData from "../../Data/data";
+import adultData from "../../Data/AdultData";
+
+const combinedData = [...childrenData, ...adultData]
 
 function DetailedView() {
   const { postName } = useParams();
 
   return (
     <>
-      {childrenData.map(function (singleObj) {
+      {combinedData.map(function (singleObj) {
         if (postName == singleObj.fullName) {
           return (
             <div className="DetailedView div10">

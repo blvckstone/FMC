@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import childrenData from '../../Data/data';
+import adultData from '../../Data/AdultData';
 import RecentList from '../List/RecentList';
+
+const combinedData = [...childrenData, ...adultData]
 
 function SearchBar(props) {
   // const [value, setValue] = useState("");
@@ -22,7 +25,7 @@ function SearchBar(props) {
   function searchForQuery(searchQuery) {
     // Check if the search query has at least 3 characters
     if (searchQuery.length >= 3) {
-      const filtered = childrenData.filter(function (data) {
+      const filtered = combinedData.filter(function (data) {
         const fullName = data.fullName.toLowerCase();
         const contNumber = data.contactNumber;
         let query = searchQuery.toLowerCase();

@@ -2,7 +2,15 @@ import React from "react";
 import childrenData from '../../data';
 import RecentList from "../List/RecentList";
 
+
 function ViewAllList(){
+
+    
+
+
+
+
+
     return(
         <>
                 {childrenData.map(function(singleData){
