@@ -237,6 +237,9 @@ input:focus {
   border: none;
   border-radius: 5px;
   color: white;
+  font-size: medium;
+  font-weight: 600;
+
  }
 
  .btn2callnow {
@@ -257,7 +260,9 @@ input:focus {
   width: 100%;
   border-radius: 8px 8px 0 0;
   padding: 8px;
-  color:white
+  color:white;
+  font-size: medium;
+  font-weight: 600;
  
  }
 

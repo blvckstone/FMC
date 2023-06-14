@@ -48,8 +48,8 @@ function TitleText(props) {
               <div className="sidebar-content">
                 <ul className="menu-options">
                   <Link to="/"><li>Home</li></Link>
-                  <Link to="/list"><li>All Children List</li></Link>
-                  <Link to="/lists"><li>All Persons List</li></Link>
+                  <Link to="/childList"><li>All Children List</li></Link>
+                  <Link to="/adultList"><li>All Persons List</li></Link>
                 </ul>
                 <button id="menuClosebtn" onClick={toggleSidebar}>Close</button>
               </div>

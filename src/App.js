@@ -19,8 +19,15 @@ function App() {
   const [bgclrStrng, setbgClrStrng] = useState("#ff4949"); //For Blinking Missing Button
   const [txtclrStrng, settxtclrStrng] = useState("#ffffff"); //For Blinking Missing Button
   const [progress, setProgress] = useState(0); //For Progress Bar
+  const [arrayLength, setArrayLength] = useState(0);
 
   
+
+  
+
+
+  useEffect(() => {setArrayLength((adultData.length)-1)}, [arrayLength])
+
 
 
   useEffect(() => {
@@ -35,6 +42,8 @@ function App() {
       clearInterval(timer);
     };
   }, [progress]);
+
+
 
 
   useEffect(() => {
@@ -98,7 +107,17 @@ function App() {
                     btnText={"Found? Call Parents"}
                   />
 
-                  {adultData.map((singleAdultObj) => {
+
+                  <AdultMissingTile
+                    missingSince={adultData[arrayLength].missingDate}
+                    img={adultData[arrayLength].img}
+                    fullName={adultData[arrayLength].fullName}
+                    fullInfo={adultData[arrayLength].address}
+                    phone={adultData[arrayLength].contactNumber}
+                  />
+
+
+                  {/* {adultData.map((singleAdultObj) => {
                     return(
                       <AdultMissingTile
                     missingSince={singleAdultObj.missingDate}
@@ -109,7 +128,7 @@ function App() {
                   />
 
                     )
-                  })}
+                  })} */}
 
                   
 
@@ -122,7 +141,7 @@ function App() {
   {/*----------------------------------------List Routes Here "/list" Render all These when go to /list--------------------------------------------- */}
 
 
-            <Route path="/list" element={<>
+            <Route path="/childList" element={<>
               
               
                 
@@ -130,7 +149,7 @@ function App() {
                     color="#f11946"
                     progress={progress}
                     style={{ marginTop: "-15px" }}
-                    key="list" //for loading bar not working when we add  it twice so we added this
+                    key="childList" //for loading bar not working when we add  it twice so we added this
                   />
 
 
@@ -155,7 +174,7 @@ function App() {
 
 
 
-            <Route path="/lists" element={<>
+            <Route path="/adultList" element={<>
               
               
                 
@@ -163,7 +182,7 @@ function App() {
                 color="#f11946"
                 progress={progress}
                 style={{ marginTop: "-15px" }}
-                key="list" //for loading bar not working when we add  it twice so we added this
+                key="adultList" //for loading bar not working when we add  it twice so we added this
               />
 
 
@@ -221,7 +240,7 @@ function App() {
 
 
 
-            <Route path={"/list/:postName"} element={<>
+            <Route path={"/childList/:postName"} element={<>
               
               
                 
@@ -236,6 +255,26 @@ function App() {
               <BackHome />
 
             </>}
+          
+              ></Route>
+
+
+
+            <Route path={"/adultList/:postName"} element={<>
+              
+              
+                
+              <LoadingBar
+                color="#f11946"
+                progress={progress}
+                style={{ marginTop: "-15px" }}
+                key="details" //for loading bar not working when we add  it twice so we added this
+              />
+
+              <DetailedView />
+              <BackHome />
+
+              </>}
           
               ></Route>
 
