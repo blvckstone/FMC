@@ -50,6 +50,7 @@ function TitleText(props) {
                   <Link to="/"><li>Home</li></Link>
                   <Link to="/childList"><li>All Children List</li></Link>
                   <Link to="/adultList"><li>All Persons List</li></Link>
+                  <Link to="/add"><li>Add Missing Child</li></Link>
                 </ul>
                 <button id="menuClosebtn" onClick={toggleSidebar}>Close</button>
               </div>

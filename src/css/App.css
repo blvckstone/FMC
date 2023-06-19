@@ -164,6 +164,33 @@ body {
   
 }
 
+.div12 {
+  margin: 15px;
+  width: 100%;
+  padding: 15px;
+  text-align: center;
+  font-size: small;
+  border-radius: 8px;
+  border: none;
+  background-color: #1f2937;
+  color: rgb(162, 162, 162);
+  line-height: 2;
+  
+}
+
+.div13 {
+  margin: 15px;
+  width: 100%;
+  padding: 15px;
+  font-size: small;
+  border-radius: 8px;
+  border: none;
+  background-color: #1f2937;
+  color: rgb(162, 162, 162);
+  line-height: 2;
+  
+}
+
 
 .image-container {
   width: 393px;
@@ -225,7 +252,18 @@ input:focus {
 
 }
 
+.addMisingChild {
+  font-size: 20px;
+  margin-top: 10px;
+  padding-bottom: 20px;
+  font-weight: 900;
+}
 
+.admin {
+  font-size: small;
+  margin-left: 5px;
+  color: #8d8d8d;
+}
 
 
 
@@ -321,5 +359,9 @@ input:focus {
   body {
     display: none;
   }
+}
+
+footer {
+  background-color: #3c3c3c;
 }
 

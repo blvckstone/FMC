@@ -12,6 +12,7 @@ import RecentList from "./components/List/RecentList";
 import DetailedView from "./components/Pages/DetailedView";
 import BackHome from "./components/Buttons/BackHome";
 import adultData from "./Data/AdultData";
+import AddDataAdmin from "./forms/AddDataAdmin";
 
 
 function App() {
@@ -19,14 +20,18 @@ function App() {
   const [bgclrStrng, setbgClrStrng] = useState("#ff4949"); //For Blinking Missing Button
   const [txtclrStrng, settxtclrStrng] = useState("#ffffff"); //For Blinking Missing Button
   const [progress, setProgress] = useState(0); //For Progress Bar
-  const [arrayLength, setArrayLength] = useState(0);
-
+  const [childrenArrayLength, setChildArrayLength] = useState(0);
+  const [adultArrayLength, setAdultArrayLength] = useState(0);
+  const currentDate = new Date().getFullYear();
   
 
   
 
+  
 
-  useEffect(() => {setArrayLength((adultData.length)-1)}, [arrayLength])
+
+  useEffect(() => {setChildArrayLength((childrenData.length)-1)}, [childrenArrayLength])
+  useEffect(() => {setAdultArrayLength((adultData.length)-1)}, [adultArrayLength])
 
 
 
@@ -96,39 +101,27 @@ function App() {
                     text={"Recently Missing"}
                     bgColor={bgclrStrng}
                     txtColor={txtclrStrng}
-                    childImg={childrenData[0].img}
+                    childImg={childrenData[childrenArrayLength].img}
                   />
 
 
                   <Details
-                    fullName={childrenData[0].fullName}
-                    fullInfo={childrenData[0].address}
-                    phone={"+91 9011507760"}
+                    fullName={childrenData[childrenArrayLength].fullName}
+                    fullInfo={childrenData[childrenArrayLength].address}
+                    phone={childrenData[childrenArrayLength].contactNumber}
                     btnText={"Found? Call Parents"}
                   />
 
 
                   <AdultMissingTile
-                    missingSince={adultData[arrayLength].missingDate}
-                    img={adultData[arrayLength].img}
-                    fullName={adultData[arrayLength].fullName}
-                    fullInfo={adultData[arrayLength].address}
-                    phone={adultData[arrayLength].contactNumber}
+                    missingSince={adultData[adultArrayLength].missingDate}
+                    img={adultData[adultArrayLength].img}
+                    fullName={adultData[adultArrayLength].fullName}
+                    fullInfo={adultData[adultArrayLength].address}
+                    phone={adultData[adultArrayLength].contactNumber}
                   />
 
 
-                  {/* {adultData.map((singleAdultObj) => {
-                    return(
-                      <AdultMissingTile
-                    missingSince={singleAdultObj.missingDate}
-                    img={singleAdultObj.img}
-                    fullName={singleAdultObj.fullName}
-                    fullInfo={singleAdultObj.address}
-                    phone={singleAdultObj.contactNumber}
-                  />
-
-                    )
-                  })} */}
 
                   
 
@@ -209,13 +202,6 @@ function App() {
 
 
 
-
-
-
-
-
-
-
             <Route path={"/:postName"} element={<>
               
               
@@ -256,7 +242,7 @@ function App() {
 
             </>}
           
-              ></Route>
+            ></Route>
 
 
 
@@ -276,7 +262,28 @@ function App() {
 
               </>}
           
-              ></Route>
+            ></Route>
+
+
+            <Route path="/add" element={<>
+
+              <LoadingBar
+                color="#f11946"
+                progress={progress}
+                style={{ marginTop: "-15px" }}
+                key="add" //for loading bar not working when we add  it twice so we added this
+              />
+
+            <AddDataAdmin 
+            formTitle={"Add Missing Child"}
+            formUser={"Admin"}
+            />
+            
+            
+            
+            
+            </>}>
+            </Route>
 
 
             
@@ -286,6 +293,8 @@ function App() {
             
           </>
         </Routes>
+
+        <footer className="div12"><p>{currentDate} &copy; <span id="currentYear"></span>  All rights reserved | گمشدہ بچوں کی تلاش گروپ<br/> Developed By Shoeb</p></footer>
         
       </div>
     </>
